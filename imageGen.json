@@ -1,0 +1,301 @@
+[
+  {
+    "valid": true,
+    "id": "fc659a8d590e92c3",
+    "type": "http request",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "method": "GET",
+    "ret": "bin",
+    "paytoqs": "ignore",
+    "url": "https://source.unsplash.com/random/1080x1080/?nature",
+    "tls": "",
+    "persist": false,
+    "proxy": "",
+    "authType": "",
+    "x": 510,
+    "y": 800,
+    "wires": [
+      [
+        "32ff7a6de34b9aa1",
+        "ba4cf2de32a980a1"
+      ]
+    ],
+    "color": "#9F4E2A",
+    "darkColor": "#884324",
+    "module": "node-red",
+    "version": "2.0.6-git"
+  },
+  {
+    "valid": true,
+    "id": "b898bb5c3f47e7b3",
+    "type": "inject",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "props": [
+      {
+        "p": "payload"
+      },
+      {
+        "p": "topic",
+        "vt": "str"
+      }
+    ],
+    "repeat": "",
+    "crontab": "",
+    "once": false,
+    "onceDelay": 0.1,
+    "topic": "",
+    "payloadType": "date",
+    "x": 280,
+    "y": 800,
+    "wires": [
+      [
+        "fc659a8d590e92c3"
+      ]
+    ],
+    "color": "#808080",
+    "darkColor": "#6A6A6A",
+    "module": "node-red",
+    "version": "2.0.6-git"
+  },
+  {
+    "valid": true,
+    "id": "32ff7a6de34b9aa1",
+    "type": "jimp-image",
+    "z": "619d147b.6d0aac",
+    "name": "grayscale-image",
+    "data": "payload",
+    "dataType": "msg",
+    "ret": "img",
+    "parameter1": "5",
+    "parameter1Type": "msg",
+    "parameter2": "",
+    "parameter2Type": "msg",
+    "parameter3": "",
+    "parameter3Type": "msg",
+    "parameter4": "",
+    "parameter4Type": "msg",
+    "parameter5": "",
+    "parameter5Type": "msg",
+    "parameter6": "",
+    "parameter6Type": "msg",
+    "parameter7": "",
+    "parameter7Type": "msg",
+    "parameter8": "",
+    "parameter8Type": "msg",
+    "sendProperty": "payload",
+    "sendPropertyType": "msg",
+    "parameterCount": 0,
+    "jimpFunction": "greyscale",
+    "selectedJimpFunction": {
+      "name": "greyscale",
+      "fn": "greyscale",
+      "description": "remove colour from the image",
+      "parameters": []
+    },
+    "x": 760,
+    "y": 800,
+    "wires": [
+      [
+        "922ebafaaf7930ff",
+        "8206e2e86ef30a4b"
+      ]
+    ],
+    "color": "#808080",
+    "darkColor": "#6A6A6A",
+    "module": "node-red-contrib-image-tools",
+    "version": "2.0.4"
+  },
+  {
+    "valid": true,
+    "id": "ba4cf2de32a980a1",
+    "type": "image viewer",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "width": "500",
+    "data": "payload",
+    "dataType": "msg",
+    "active": true,
+    "x": 250,
+    "y": 960,
+    "wires": [
+      []
+    ],
+    "color": "#9F4E2A",
+    "darkColor": "#884324",
+    "module": "node-red-contrib-image-tools",
+    "version": "2.0.4"
+  },
+  {
+    "valid": true,
+    "id": "922ebafaaf7930ff",
+    "type": "image viewer",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "width": "500",
+    "data": "payload",
+    "dataType": "msg",
+    "active": true,
+    "x": 790,
+    "y": 960,
+    "wires": [
+      []
+    ],
+    "color": "#996F6F",
+    "darkColor": "#905454",
+    "module": "node-red-contrib-image-tools",
+    "version": "2.0.4"
+  },
+  {
+    "valid": true,
+    "id": "8206e2e86ef30a4b",
+    "type": "jimp-image",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "data": "payload",
+    "dataType": "msg",
+    "ret": "buf",
+    "parameter1": "FONT_SANS_32_WHITE",
+    "parameter1Type": "jimpFont",
+    "parameter2": "50",
+    "parameter2Type": "num",
+    "parameter3": "900",
+    "parameter3Type": "num",
+    "parameter4": "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it; and this you have the power to revoke at any moment.",
+    "parameter4Type": "str",
+    "parameter5": "600",
+    "parameter5Type": "num",
+    "parameter6": "100",
+    "parameter6Type": "num",
+    "parameter7": "",
+    "parameter7Type": "msg",
+    "parameter8": "",
+    "parameter8Type": "msg",
+    "sendProperty": "payload",
+    "sendPropertyType": "msg",
+    "parameterCount": 6,
+    "jimpFunction": "print",
+    "selectedJimpFunction": {
+      "name": "print",
+      "fn": "print",
+      "description": "Print text to the image",
+      "parameters": [
+        {
+          "name": "font|str",
+          "type": "jimpFont",
+          "required": true,
+          "hint": "font to print. NOTE: This can be one of the presets or the path to a fnt file"
+        },
+        {
+          "name": "x",
+          "type": "num",
+          "required": true,
+          "hint": "x coordinate to print text"
+        },
+        {
+          "name": "y",
+          "type": "num",
+          "required": true,
+          "hint": "y coordinate to print text"
+        },
+        {
+          "name": "text",
+          "type": "str",
+          "required": true,
+          "hint": "text to print"
+        },
+        {
+          "name": "maxWidth",
+          "type": "num",
+          "required": false,
+          "hint": "wrap text at maxWidth"
+        },
+        {
+          "name": "maxHeight",
+          "type": "num",
+          "required": false,
+          "hint": "max height"
+        }
+      ]
+    },
+    "x": 1050,
+    "y": 900,
+    "wires": [
+      [
+        "7f4ad4e5a30cbffb"
+      ]
+    ],
+    "color": "#6F7F99",
+    "darkColor": "#526788",
+    "module": "node-red-contrib-image-tools",
+    "version": "2.0.4"
+  },
+  {
+    "valid": true,
+    "id": "7f4ad4e5a30cbffb",
+    "type": "image viewer",
+    "z": "619d147b.6d0aac",
+    "name": "",
+    "width": "500",
+    "data": "payload",
+    "dataType": "msg",
+    "active": true,
+    "x": 1350,
+    "y": 960,
+    "wires": [
+      []
+    ],
+    "color": "#adadad",
+    "darkColor": "#808080",
+    "module": "node-red-contrib-image-tools",
+    "version": "2.0.4"
+  },
+  {
+    "valid": true,
+    "id": "30772b2fb4176c64",
+    "type": "bot-info",
+    "z": "619d147b.6d0aac",
+    "name": "Quote Image Generator",
+    "title": "Quote Image Generator",
+    "description": "scrape the image from unsplash, grayscale it, put  quote on it ",
+    "created": "July 4, 2022",
+    "timestamp": 1656944902144,
+    "compatibility": [
+      {
+        "label": "MacOS",
+        "value": "macos"
+      },
+      {
+        "label": "Windows",
+        "value": "windows"
+      },
+      {
+        "label": "Linux",
+        "value": "linux"
+      },
+      {
+        "label": "Maya Cloud",
+        "value": "cloud"
+      }
+    ],
+    "developer": "khanansub3@gmail.com",
+    "previewMedia": "",
+    "version": "1.0.1",
+    "x": 488.61398682676315,
+    "y": 1356.8598656088245,
+    "wires": [],
+    "color": "#9F4E2A",
+    "darkColor": "#884324",
+    "module": "maya-red-bot-utils"
+  },
+  {
+    "disabled": false,
+    "id": "619d147b.6d0aac",
+    "info": "",
+    "label": "Flow 1",
+    "type": "tab",
+    "module": null,
+    "version": null
+  }
+]
