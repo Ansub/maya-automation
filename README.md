@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-  <a aria-label="Follow Maya on Twitter" href="https://twitter.com/raycastapp">
+  <a aria-label="Follow Maya on Twitter" href="https://twitter.com/mayalabsio">
     <img alt="" src="https://img.shields.io/badge/Follow%20@mayalabsio-purple.svg?style=for-the-badge&logo=Twitter">
   </a>
   
